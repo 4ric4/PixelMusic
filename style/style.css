@@ -1,0 +1,48 @@
+body { background-color: #1e1e1e; 
+    color: #ffffff; 
+    font-family: sans-serif; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    margin: 0; 
+    padding: 20px; 
+}
+
+#game-wrapper { 
+    position: relative; 
+    width: 800px; 
+    height: 600px; 
+}
+
+#game-container, #gif-container { 
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+}
+
+#gif-container { 
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-end; 
+    z-index: 1; 
+}
+
+#game-gif { 
+    height: 120px; 
+    margin-bottom: 10px; }
+#game-container { 
+    z-index: 2; 
+}
+#audio-input { 
+    margin: 15px 0; 
+}
+#difficulty-selector { 
+    margin-top: 15px; 
+}
+#difficulty-selector label { 
+    margin: 0 10px; 
+    cursor: pointer; 
+}

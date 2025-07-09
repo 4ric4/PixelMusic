@@ -34,4 +34,5 @@ const GAME_CONSTANTS = {
     HIT_WINDOW: 50
 };
 
+
 export { phaserConfig, DIFFICULTY_SETTINGS, GAME_CONSTANTS };

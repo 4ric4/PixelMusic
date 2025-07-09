@@ -119,10 +119,20 @@ export default class GameScene extends Phaser.Scene {
         const threshold = avg * settings.thresholdMultiplier;
         this.beatmap = [];
 
+        const MAX_GAP = 1.5;
+
         energyData.forEach((energy, index) => {
-            if (energy > threshold) {
-                const timeInSeconds = index * (hopSize / audioBuffer.sampleRate);
-                if (this.beatmap.length === 0 || (timeInSeconds - this.beatmap[this.beatmap.length - 1].time) > settings.minTimeGap) {
+            const timeInSeconds = index * (hopSize / audioBuffer.sampleRate);
+
+            const lastNoteTime = this.beatmap.length > 0
+                ? this.beatmap[this.beatmap.length - 1].time
+                : -Infinity;
+
+            const shouldAdd = energy > threshold;
+            const tooLongSinceLast = (timeInSeconds - lastNoteTime) > MAX_GAP;
+
+            if (shouldAdd || tooLongSinceLast) {
+                if ((timeInSeconds - lastNoteTime) > settings.minTimeGap) {
                     let duration = 0;
                     if (Math.random() < settings.holdNoteChance) {
                         duration = settings.holdNoteDuration;
@@ -143,6 +153,8 @@ export default class GameScene extends Phaser.Scene {
                 }
             }
         });
+
+
 
         this.startGame(audioBuffer);
         document.getElementById('loader').style.display = 'none';

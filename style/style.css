@@ -11,8 +11,8 @@ body { background-color: #1e1e1e;
 
 #game-wrapper { 
     position: relative; 
-    width: 800px; 
-    height: 600px; 
+    width: 1152px; 
+    height: 648px; 
 }
 
 #game-container, #gif-container { 
@@ -28,8 +28,8 @@ body { background-color: #1e1e1e;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 800px; /* igual ao jogo */
-    height: 600px;
+    width: 1152px; /* igual ao jogo */
+    height: 648px;
     z-index: 1;
     overflow: hidden;
 }

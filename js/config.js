@@ -1,8 +1,8 @@
 
 const phaserConfig = {
     type: Phaser.AUTO,
-    width: 800,
-    height: 600,
+    width: 1152,
+    height: 648,
     transparent: true,
     parent: 'game-container',
 };
@@ -27,8 +27,8 @@ const DIFFICULTY_SETTINGS = {
 
 const GAME_CONSTANTS = {
     NUM_COLUMNS: 4,
-    TRACK_WIDTH: 320,
-    COLUMN_WIDTH: 320 / 4,
+    TRACK_WIDTH: 348,
+    COLUMN_WIDTH: 348 / 4,
     TARGET_Y_POSITION: 550,
     KEY_MAP: ['D', 'F', 'J', 'K'],
     HIT_WINDOW: 50

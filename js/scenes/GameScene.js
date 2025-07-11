@@ -232,7 +232,7 @@ export default class GameScene extends Phaser.Scene {
 
     spawnNote(column, duration) {
         const screenCenterX = this.sys.game.config.width / 2;
-        const trackStartX = screenCenterX - (this.gameConstants.TRACK_WIDTH / 2) + 40 ; 
+        const trackStartX = screenCenterX - (this.gameConstants.TRACK_WIDTH / 2) + 45 ; 
         const noteX = trackStartX + (column * this.gameConstants.COLUMN_WIDTH) + (this.gameConstants.COLUMN_WIDTH / 2);
         const startY = -50;
         const newNote = new Note(this, noteX, startY, column, this.noteSpeed, duration);
@@ -280,7 +280,7 @@ export default class GameScene extends Phaser.Scene {
 
     setupScene() {
         const screenCenterX = this.sys.game.config.width / 2;
-        const trackStartX = screenCenterX - (this.gameConstants.TRACK_WIDTH / 2) + 40;
+        const trackStartX = screenCenterX - (this.gameConstants.TRACK_WIDTH / 2) + 45;
         const graphics = this.add.graphics();
         graphics.lineStyle(2, 0x555555);
         for (let i = 0; i <= this.gameConstants.NUM_COLUMNS; i++) {

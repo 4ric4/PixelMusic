@@ -3,6 +3,10 @@ export default class UIScene extends Phaser.Scene {
         super({ key: 'UIScene', active: true });
     }
 
+    preload() {
+        this.load.image('combo4_banner', 'assets/ui/combo4_banner.png');
+    }
+
     create() {
         const baseX = 16;
         const baseY = 16;
@@ -22,6 +26,13 @@ export default class UIScene extends Phaser.Scene {
         this.scoreText = this.add.text(baseX, baseY + 70, 'Score: 0', { 
             fontSize: '28px', fill: '#FFFFFF', fontStyle: 'bold' 
         }).setShadow(2, 2, '#000000', 2, true, true);
+
+        // ? Banner fixo, mas inicialmente invisível
+        this.combo4Banner = this.add.image(baseX + 150, baseY + 110, 'combo4_banner')
+            .setOrigin(0.5, 0)
+            .setScale(0.8)
+            .setDepth(10)
+            .setVisible(false); // começa invisível
 
         const gameScene = this.scene.get('GameScene');
 
@@ -47,6 +58,12 @@ export default class UIScene extends Phaser.Scene {
             } else {
                 this.multiplierText.setAlpha(0);
             }
+
+            if (multiplier >= 4) {
+                this.combo4Banner.setVisible(true);
+            } else {
+                this.combo4Banner.setVisible(false);
+            }
         });
 
         gameScene.events.on('resetUI', () => {
@@ -54,6 +71,7 @@ export default class UIScene extends Phaser.Scene {
             this.comboCountText.setAlpha(0);
             this.comboLabelText.setAlpha(0);
             this.multiplierText.setAlpha(0);
+            this.combo4Banner.setVisible(false); // esconde também no reset
         });
     }
 }
